@@ -18,7 +18,8 @@ class MyThread(context : Context,
     val picture = BitmapFactory.decodeResource(context.resources, R.drawable.grass)
     var wood = BitmapFactory.decodeResource(context.resources, R.drawable.wood)
     val stive = BitmapFactory.decodeResource(context.resources, R.drawable.stive)
-
+    val bow = BitmapFactory.decodeResource(context.resources, R.drawable.bow)
+    val arrow = BitmapFactory.decodeResource(context.resources, R.drawable.arrow)
     var stone = BitmapFactory.decodeResource(context.resources, R.drawable.stone)
     var mRunning = false
     fun setRunning(running: Boolean) { //запускает и останавливает процесс
@@ -139,7 +140,11 @@ class MyThread(context : Context,
         canvas.drawBitmap(
                 stive,
                 null,
-                RectF(x,y,y,x),
+                RectF(x+135,
+                    canvas.height - picture.height - wood.height * 3.toFloat(),
+                    x+wood.width -35,
+                    canvas.height - picture.height - wood.height * 2.toFloat()
+                ),
 
                 paint
         )
